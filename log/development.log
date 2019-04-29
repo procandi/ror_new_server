@@ -1,0 +1,750 @@
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 16:27:55 +0800
+  [1m[36m (52.0ms)[0m  [1mSELECT version()[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (49.0ms)
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (222.0ms)
+  Rendered common/_footer.html.erb (10.0ms)
+Completed 200 OK in 6036ms (Views: 3800.6ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 16:28:02 +0800
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 16:28:08 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (3382.0ms)
+  Rendered news/new.html.erb within layouts/application (3391.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (17.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 4940ms (Views: 4913.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/news" for 127.0.0.1 at 2019-04-29 16:28:26 +0800
+Processing by NewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bGE+8iHjAA9RkqBbmp+whtLC+Qowigwx1OlsbrHJyABxi3NLkXAgSho+mEdC55/HUDRfJUW/u2hGvf8n3TwOYg==", "news"=>{"postdate(1i)"=>"2019", "postdate(2i)"=>"4", "postdate(3i)"=>"29", "posttime(1i)"=>"2019", "posttime(2i)"=>"4", "posttime(3i)"=>"29", "posttime(4i)"=>"16", "posttime(5i)"=>"28", "title"=>"測試標題", "body"=>"測試內容", "picture"=>""}, "commit"=>"新增News"}
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "news" ("title", "body", "picture", "postdate", "posttime", "created_at", "updated_at") VALUES ('測試標題', '測試內容', '', '2019-04-29', '2019-04-29 16:28:00.000000', '2019-04-29 08:28:26.398000', '2019-04-29 08:28:26.398000') RETURNING ("id")
+Redirected to http://localhost:3000/news/1
+Completed 302 Found in 51ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/news/1" for 127.0.0.1 at 2019-04-29 16:28:26 +0800
+Processing by NewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNews Load (3.0ms)[0m  [1mSELECT  "news".* FROM "news" WHERE "news"."id" = 1 LIMIT 1[0m
+  Rendered news/show.html.erb within layouts/application (17.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (12.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 322ms (Views: 302.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 16:28:26 +0800
+
+
+Started GET "/contacts" for 127.0.0.1 at 2019-04-29 16:28:41 +0800
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (2.0ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  Rendered contacts/index.html.erb within layouts/application (16.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (13.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 405ms (Views: 381.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 16:28:41 +0800
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2019-04-29 16:28:43 +0800
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (22.0ms)
+  Rendered contacts/new.html.erb within layouts/application (33.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (7.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 323ms (Views: 301.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-04-29 16:29:30 +0800
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1wAFSm6g6MD2vJ0td2UzZ2v/Bvq7dNEnkpaCdUW+agPK6kjz3jPIhb0QpTGvHRwm6Qmg1c5BZn4AwhE8KUusYQ==", "contact"=>{"name"=>"測試王", "phone"=>"0911111111", "reason"=>"留言的原因很簡單", "email"=>"test_wang@king.com"}, "commit"=>"新增Contact"}
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "contacts" ("name", "phone", "reason", "email", "created_at", "updated_at") VALUES ('測試王', '0911111111', '留言的原因很簡單', 'test_wang@king.com', '2019-04-29 08:29:30.399000', '2019-04-29 08:29:30.399000') RETURNING ("id")
+Redirected to http://localhost:3000/contacts/1
+Completed 302 Found in 43ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/contacts/1" for 127.0.0.1 at 2019-04-29 16:29:30 +0800
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (1.0ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = 1 LIMIT 1[0m
+  Rendered contacts/show.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (11.0ms)
+  Rendered common/_footer.html.erb (4.0ms)
+Completed 200 OK in 328ms (Views: 300.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 16:29:30 +0800
+
+
+Started GET "/faq" for 127.0.0.1 at 2019-04-29 16:29:42 +0800
+
+ActionController::RoutingError (No route matches [GET] "/faq"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  puma-3.9.1 (java) lib/puma/configuration.rb:224:in `call'
+  puma-3.9.1 (java) lib/puma/server.rb:602:in `handle_request'
+  puma-3.9.1 (java) lib/puma/server.rb:435:in `process_client'
+  puma-3.9.1 (java) lib/puma/server.rb:299:in `block in run'
+  org/jruby/RubyProc.java:318:in `call'
+  puma-3.9.1 (java) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (421.0ms)
+
+
+Started GET "/faqq" for 127.0.0.1 at 2019-04-29 16:29:44 +0800
+
+ActionController::RoutingError (No route matches [GET] "/faqq"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  puma-3.9.1 (java) lib/puma/configuration.rb:224:in `call'
+  puma-3.9.1 (java) lib/puma/server.rb:602:in `handle_request'
+  puma-3.9.1 (java) lib/puma/server.rb:435:in `process_client'
+  puma-3.9.1 (java) lib/puma/server.rb:299:in `block in run'
+  org/jruby/RubyProc.java:318:in `call'
+  puma-3.9.1 (java) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (10.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (328.0ms)
+
+
+Started GET "/faqs" for 127.0.0.1 at 2019-04-29 16:29:47 +0800
+Processing by FaqsController#index as HTML
+  [1m[36mFaq Load (4.0ms)[0m  [1mSELECT "faqs".* FROM "faqs"[0m
+  Rendered faqs/index.html.erb within layouts/application (30.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (6.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 370ms (Views: 346.4ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 16:29:47 +0800
+
+
+Started GET "/faqs/new" for 127.0.0.1 at 2019-04-29 16:29:50 +0800
+Processing by FaqsController#new as HTML
+  Rendered faqs/_form.html.erb (21.0ms)
+  Rendered faqs/new.html.erb within layouts/application (26.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (10.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 281ms (Views: 267.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/faqs" for 127.0.0.1 at 2019-04-29 16:30:26 +0800
+Processing by FaqsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NdNOVEXgmJW4/4GxlEk8NcvDeIk3ugWQeexU57Gpm/IoOQPt9XO40PNTua1MMRN0STXepkKPssnruMeu3VxdkA==", "faq"=>{"question"=>"問題一", "answer"=>"回答一"}, "commit"=>"新增Faq"}
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "faqs" ("question", "answer", "created_at", "updated_at") VALUES ('問題一', '回答一', '2019-04-29 08:30:26.468000', '2019-04-29 08:30:26.468000') RETURNING ("id")
+Redirected to http://localhost:3000/faqs/1
+Completed 302 Found in 26ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/faqs/1" for 127.0.0.1 at 2019-04-29 16:30:26 +0800
+Processing by FaqsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFaq Load (1.0ms)[0m  [1mSELECT  "faqs".* FROM "faqs" WHERE "faqs"."id" = 1 LIMIT 1[0m
+  Rendered faqs/show.html.erb within layouts/application (8.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (12.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 357ms (Views: 340.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 16:30:26 +0800
+
+
+Started GET "/faqs" for 127.0.0.1 at 2019-04-29 16:30:44 +0800
+Processing by FaqsController#index as HTML
+  [1m[36mFaq Load (0.0ms)[0m  [1mSELECT "faqs".* FROM "faqs"[0m
+  Rendered faqs/index.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (6.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 204ms (Views: 198.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2019-04-29 16:30:47 +0800
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.0ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  Rendered contacts/index.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (5.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 218ms (Views: 212.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 16:30:49 +0800
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (6.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (6.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 254ms (Views: 246.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:03:39 +0800
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (2.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (37.0ms)
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (192.0ms)
+  Rendered common/_footer.html.erb (4.0ms)
+Completed 200 OK in 558ms (Views: 521.2ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:03:40 +0800
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:03:44 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (621.0ms)
+  Rendered news/new.html.erb within layouts/application (627.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (9.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 849ms (Views: 842.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:06:20 +0800
+Processing by NewsController#new as HTML
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant News::PictureUploader):
+  app/models/news.rb:3:in `<class:News>'
+  app/models/news.rb:1:in `<top>'
+  app/controllers/news_controller.rb:51:in `new'
+
+
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (36.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:08:10 +0800
+Processing by NewsController#new as HTML
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant News::PictureUploader):
+  app/models/news.rb:3:in `<class:News>'
+  app/models/news.rb:1:in `<top>'
+  app/controllers/news_controller.rb:51:in `new'
+
+
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (40.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:10:06 +0800
+  [1m[36m (30.0ms)[0m  [1mSELECT version()[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by NewsController#new as HTML
+Completed 500 Internal Server Error in 390ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant News::PictureUploader):
+  app/models/news.rb:3:in `<class:News>'
+  app/models/news.rb:1:in `<top>'
+  app/controllers/news_controller.rb:51:in `new'
+
+
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (24.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:12:32 +0800
+Processing by NewsController#new as HTML
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant News::PictureUploader):
+  app/models/news.rb:3:in `<class:News>'
+  app/models/news.rb:1:in `<top>'
+  app/controllers/news_controller.rb:51:in `new'
+
+
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:13:37 +0800
+  [1m[36m (29.0ms)[0m  [1mSELECT version()[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (1181.0ms)
+  Rendered news/new.html.erb within layouts/application (1197.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (80.0ms)
+  Rendered common/_footer.html.erb (5.0ms)
+Completed 200 OK in 4029ms (Views: 3662.3ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:13:41 +0800
+
+
+Started POST "/news" for 127.0.0.1 at 2019-04-29 22:14:38 +0800
+Processing by NewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5OzRv2k//BeLYYE9R18yKv5i7DWxFZJ73FlsvzwS6Faef7/TTfftRWBvhgtZVOJKQ8tn6Px4RB9Jfb7kAWNww==", "news"=>{"postdate(1i)"=>"2019", "postdate(2i)"=>"4", "postdate(3i)"=>"29", "posttime(1i)"=>"2019", "posttime(2i)"=>"4", "posttime(3i)"=>"29", "posttime(4i)"=>"22", "posttime(5i)"=>"13", "title"=>"測試標題2", "body"=>"測試內容2", "pciture"=>[#<ActionDispatch::Http::UploadedFile:0xd28f181 @tempfile=#<Tempfile:/var/folders/4b/djtbvgy50kdbh3cv0y17swrm0000gn/T/RackMultipart20190429-16696-cn3etf.jpg>, @original_filename="250px-SpongeBob_SquarePants.jpg", @headers="Content-Disposition: form-data; name=\"news[pciture][]\"; filename=\"250px-SpongeBob_SquarePants.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg">]}, "commit"=>"新增News"}
+Unpermitted parameter: pciture
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "news" ("title", "body", "postdate", "posttime", "created_at", "updated_at") VALUES ('測試標題2', '測試內容2', '2019-04-29', '2019-04-29 22:13:00.000000', '2019-04-29 14:14:38.145000', '2019-04-29 14:14:38.145000') RETURNING ("id")
+Redirected to http://localhost:3000/news/2
+Completed 302 Found in 88ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/news/2" for 127.0.0.1 at 2019-04-29 22:14:38 +0800
+Processing by NewsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mNews Load (2.0ms)[0m  [1mSELECT  "news".* FROM "news" WHERE "news"."id" = 2 LIMIT 1[0m
+  Rendered news/show.html.erb within layouts/application (7.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (9.0ms)
+  Rendered common/_footer.html.erb (4.0ms)
+Completed 200 OK in 326ms (Views: 314.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:14:38 +0800
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:14:50 +0800
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (6.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (15.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (15.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 313ms (Views: 299.3ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:18:46 +0800
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (11.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (9.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 267ms (Views: 258.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:18:46 +0800
+
+
+Started GET "/news/1" for 127.0.0.1 at 2019-04-29 22:18:50 +0800
+Processing by NewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT  "news".* FROM "news" WHERE "news"."id" = 1 LIMIT 1[0m
+  Rendered news/show.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (7.0ms)
+  Rendered common/_footer.html.erb (5.0ms)
+Completed 200 OK in 235ms (Views: 221.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:18:52 +0800
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (3.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (18.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (12.0ms)
+  Rendered common/_footer.html.erb (4.0ms)
+Completed 200 OK in 283ms (Views: 272.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/news/2" for 127.0.0.1 at 2019-04-29 22:18:54 +0800
+Processing by NewsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT  "news".* FROM "news" WHERE "news"."id" = 2 LIMIT 1[0m
+  Rendered news/show.html.erb within layouts/application (7.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (6.0ms)
+  Rendered common/_footer.html.erb (4.0ms)
+Completed 200 OK in 238ms (Views: 208.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/news/2" for 127.0.0.1 at 2019-04-29 22:19:09 +0800
+Processing by NewsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mNews Load (2.0ms)[0m  [1mSELECT  "news".* FROM "news" WHERE "news"."id" = 2 LIMIT 1[0m
+  Rendered news/show.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (6.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 195ms (Views: 186.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:19:10 +0800
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:21:06 +0800
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (8.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (6.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 232ms (Views: 225.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:21:07 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (25.0ms)
+  Rendered news/new.html.erb within layouts/application (33.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (6.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 220ms (Views: 213.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/news" for 127.0.0.1 at 2019-04-29 22:21:23 +0800
+Processing by NewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B4p8rlziT01O/cguCdHsIF2DEqeW7VYZl/wAkhNndP4aYDEX7HFvCAVR8DLRqcNh33W0iOPY4UAFqJPbf5KynA==", "news"=>{"postdate(1i)"=>"2019", "postdate(2i)"=>"4", "postdate(3i)"=>"29", "posttime(1i)"=>"2019", "posttime(2i)"=>"4", "posttime(3i)"=>"29", "posttime(4i)"=>"22", "posttime(5i)"=>"21", "title"=>"測試標題3", "body"=>"測試內容3", "pciture"=>[#<ActionDispatch::Http::UploadedFile:0x63465558 @tempfile=#<Tempfile:/var/folders/4b/djtbvgy50kdbh3cv0y17swrm0000gn/T/RackMultipart20190429-16696-1smlocj.jpg>, @original_filename="309e447bdab44aeda75ad9b7be1c8701a08bfbd1.jpg", @headers="Content-Disposition: form-data; name=\"news[pciture][]\"; filename=\"309e447bdab44aeda75ad9b7be1c8701a08bfbd1.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg">]}, "commit"=>"新增News"}
+Unpermitted parameter: pciture
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "news" ("title", "body", "postdate", "posttime", "created_at", "updated_at") VALUES ('測試標題3', '測試內容3', '2019-04-29', '2019-04-29 22:21:00.000000', '2019-04-29 14:21:23.606000', '2019-04-29 14:21:23.606000') RETURNING ("id")
+Redirected to http://localhost:3000/news/3
+Completed 302 Found in 28ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/news/3" for 127.0.0.1 at 2019-04-29 22:21:23 +0800
+Processing by NewsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT  "news".* FROM "news" WHERE "news"."id" = 3 LIMIT 1[0m
+  Rendered news/show.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (5.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 189ms (Views: 180.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:21:23 +0800
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:21:26 +0800
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (15.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (5.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 202ms (Views: 195.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:22:44 +0800
+  [1m[36m (47.0ms)[0m  [1mSELECT version()[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (2.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (55.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (103.0ms)
+  Rendered common/_footer.html.erb (5.0ms)
+Completed 200 OK in 1913ms (Views: 1545.6ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:22:47 +0800
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:22:50 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (82.0ms)
+  Rendered news/new.html.erb within layouts/application (89.0ms)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass):
+    1: <%= simple_form_for(@platinum) do |f| %>
+    2:   <%= f.error_notification %>
+    3: 
+    4: 
+  app/views/news/_form.html.erb:1:in `_app_views_news__form_html_erb___1468326118_16202'
+  app/views/news/new.html.erb:3:in `_app_views_news_new_html_erb___2142816673_16198'
+
+
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:23:32 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (1144.0ms)
+  Rendered news/new.html.erb within layouts/application (1146.0ms)
+Completed 500 Internal Server Error in 1155ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `pciture' for #<News:0x78ccb062>):
+    20:   </div>
+    21:   <div class="field">
+    22:     <%= f.label :picture %><br>
+    23:     <%= f.input :pciture, multiple: true %>
+    24:   </div>
+    25:   <div class="actions">
+    26:     <%= f.submit %>
+  app/views/news/_form.html.erb:23:in `block in _app_views_news__form_html_erb___1468326118_16258'
+  app/views/news/_form.html.erb:1:in `_app_views_news__form_html_erb___1468326118_16258'
+  app/views/news/new.html.erb:3:in `_app_views_news_new_html_erb___2142816673_16198'
+
+
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /Users/xieyinghua/.rvm/gems/jruby-9.0.5.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:23:56 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (36.0ms)
+  Rendered news/new.html.erb within layouts/application (38.0ms)
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (14.0ms)
+  Rendered common/_footer.html.erb (5.0ms)
+Completed 200 OK in 351ms (Views: 335.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:23:57 +0800
+
+
+Started POST "/news" for 127.0.0.1 at 2019-04-29 22:24:14 +0800
+Processing by NewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wKyEplG11TxhJX640VJcnYRLXHNnHNyB/OfpUoFgHLLdRskf4Sb1eSqJRqQJKnPcBr36XBIpa9hus3ob7ZXa0A==", "news"=>{"postdate(1i)"=>"2019", "postdate(2i)"=>"4", "postdate(3i)"=>"29", "posttime(1i)"=>"2019", "posttime(2i)"=>"4", "posttime(3i)"=>"29", "posttime(4i)"=>"22", "posttime(5i)"=>"23", "title"=>"測試標題4", "body"=>"測試內容4", "picture"=>[#<ActionDispatch::Http::UploadedFile:0x61b0d0ed @tempfile=#<Tempfile:/var/folders/4b/djtbvgy50kdbh3cv0y17swrm0000gn/T/RackMultipart20190429-16873-2o1ms8.jpg>, @original_filename="22308831_1817582505157980_9029962625762999344_n.jpg", @headers="Content-Disposition: form-data; name=\"news[picture][]\"; filename=\"22308831_1817582505157980_9029962625762999344_n.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg">]}, "commit"=>"新增News"}
+Unpermitted parameter: picture
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "news" ("title", "body", "postdate", "posttime", "created_at", "updated_at") VALUES ('測試標題4', '測試內容4', '2019-04-29', '2019-04-29 22:23:00.000000', '2019-04-29 14:24:14.542000', '2019-04-29 14:24:14.542000') RETURNING ("id")
+Redirected to http://localhost:3000/news/4
+Completed 302 Found in 66ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/news/4" for 127.0.0.1 at 2019-04-29 22:24:14 +0800
+Processing by NewsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mNews Load (1.0ms)[0m  [1mSELECT  "news".* FROM "news" WHERE "news"."id" = 4 LIMIT 1[0m
+  Rendered news/show.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (8.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 272ms (Views: 262.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:24:15 +0800
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:24:16 +0800
+Processing by NewsController#index as HTML
+  [1m[36mNews Load (2.0ms)[0m  [1mSELECT "news".* FROM "news"[0m
+  Rendered news/index.html.erb within layouts/application (14.0ms)
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (8.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 262ms (Views: 252.3ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:24:19 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (22.0ms)
+  Rendered news/new.html.erb within layouts/application (25.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (10.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 284ms (Views: 272.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:24:58 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (113.0ms)
+  Rendered news/new.html.erb within layouts/application (117.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (5.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 359ms (Views: 344.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:24:58 +0800
+
+
+Started POST "/news" for 127.0.0.1 at 2019-04-29 22:25:12 +0800
+Processing by NewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LwnXp5AZtOBnz+KDx3UUFX8yVZ188yhr8sazvNql5hsy45oeIIqUpSxj2p8fDTtU/cTzsgnGnzJgkiD1tlAgeQ==", "news"=>{"postdate(1i)"=>"2019", "postdate(2i)"=>"4", "postdate(3i)"=>"29", "posttime(1i)"=>"2019", "posttime(2i)"=>"4", "posttime(3i)"=>"29", "posttime(4i)"=>"22", "posttime(5i)"=>"24", "title"=>"測試標題1", "body"=>"測試內容1", "picture"=>#<ActionDispatch::Http::UploadedFile:0x38bb126 @tempfile=#<Tempfile:/var/folders/4b/djtbvgy50kdbh3cv0y17swrm0000gn/T/RackMultipart20190429-16873-8e7jxe.jpg>, @original_filename="26220259_10214367633160365_4233708181942148725_n.jpg", @headers="Content-Disposition: form-data; name=\"news[picture]\"; filename=\"26220259_10214367633160365_4233708181942148725_n.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg">}, "commit"=>"新增News"}
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "news" ("title", "body", "picture", "postdate", "posttime", "created_at", "updated_at") VALUES ('測試標題1', '測試內容1', '26220259_10214367633160365_4233708181942148725_n.jpg', '2019-04-29', '2019-04-29 22:24:00.000000', '2019-04-29 14:25:14.052000', '2019-04-29 14:25:14.052000') RETURNING ("id")[0m
+Redirected to http://localhost:3000/news/5
+Completed 302 Found in 1270ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/news/5" for 127.0.0.1 at 2019-04-29 22:25:14 +0800
+Processing by NewsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mNews Load (1.0ms)[0m  SELECT  "news".* FROM "news" WHERE "news"."id" = 5 LIMIT 1
+  Rendered news/show.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (6.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 233ms (Views: 225.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:25:14 +0800
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:25:20 +0800
+Processing by NewsController#index as HTML
+  [1m[35mNews Load (1.0ms)[0m  SELECT "news".* FROM "news"
+  Rendered news/index.html.erb within layouts/application (19.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (5.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 231ms (Views: 223.3ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/news/4" for 127.0.0.1 at 2019-04-29 22:25:29 +0800
+Processing by NewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AiOaqgOuN/rpdfCsK/G1u9GX1JrT5sJGfnwCYbxj02AfydcTsz0Xv6LZyLDziZr6U2FytabTdR/sKJEo0JYVAg==", "id"=>"4"}
+  [1m[35mNews Load (2.0ms)[0m  SELECT  "news".* FROM "news" WHERE "news"."id" = 4 LIMIT 1
+  [1m[36mSQL (4.0ms)[0m  [1mDELETE FROM "news" WHERE "news"."id" = 4[0m
+Redirected to http://localhost:3000/news
+Completed 302 Found in 23ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:25:29 +0800
+Processing by NewsController#index as HTML
+  [1m[35mNews Load (1.0ms)[0m  SELECT "news".* FROM "news"
+  Rendered news/index.html.erb within layouts/application (16.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (8.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 265ms (Views: 256.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:25:29 +0800
+
+
+Started DELETE "/news/3" for 127.0.0.1 at 2019-04-29 22:25:31 +0800
+Processing by NewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"W0Eql8q+1JzbhCFzs/1YBt09VrQnb7QSioPb+qquEolGq2cuei302ZAoGW9rhXdHX8vwm1JaA0sY10izxlvU6w==", "id"=>"3"}
+  [1m[35mNews Load (1.0ms)[0m  SELECT  "news".* FROM "news" WHERE "news"."id" = 3 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "news" WHERE "news"."id" = 3[0m
+Redirected to http://localhost:3000/news
+Completed 302 Found in 14ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:25:31 +0800
+Processing by NewsController#index as HTML
+  [1m[35mNews Load (2.0ms)[0m  SELECT "news".* FROM "news"
+  Rendered news/index.html.erb within layouts/application (12.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (9.0ms)
+  Rendered common/_footer.html.erb (2.0ms)
+Completed 200 OK in 232ms (Views: 225.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:25:31 +0800
+
+
+Started DELETE "/news/2" for 127.0.0.1 at 2019-04-29 22:25:33 +0800
+Processing by NewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ow8muBej9zyaNC7k6iSiqs3ML1/nSKleIJ5J3Kw/a/8m5WsBpzDXedGYFvgyXI3rTzqJcJJ9HgeyytqVwMqtnQ==", "id"=>"2"}
+  [1m[35mNews Load (2.0ms)[0m  SELECT  "news".* FROM "news" WHERE "news"."id" = 2 LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mDELETE FROM "news" WHERE "news"."id" = 2[0m
+Redirected to http://localhost:3000/news
+Completed 302 Found in 24ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:25:33 +0800
+Processing by NewsController#index as HTML
+  [1m[35mNews Load (2.0ms)[0m  SELECT "news".* FROM "news"
+  Rendered news/index.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (8.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 243ms (Views: 235.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:25:33 +0800
+
+
+Started DELETE "/news/1" for 127.0.0.1 at 2019-04-29 22:25:35 +0800
+Processing by NewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ssChTW0EViVsxbxPiIyQ6vvu/Bud3HfwTnPoku8D/YSvKuz03Zd2YCdphFNQ9L+reRhaNOjpwKncJ3vbg/Y75g==", "id"=>"1"}
+  [1m[35mNews Load (0.0ms)[0m  SELECT  "news".* FROM "news" WHERE "news"."id" = 1 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "news" WHERE "news"."id" = 1[0m
+Redirected to http://localhost:3000/news
+Completed 302 Found in 20ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2019-04-29 22:25:35 +0800
+Processing by NewsController#index as HTML
+  [1m[35mNews Load (0.0ms)[0m  SELECT "news".* FROM "news"
+  Rendered news/index.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1[0m
+  Rendered common/_navbar.html.erb (8.0ms)
+  Rendered common/_footer.html.erb (6.0ms)
+Completed 200 OK in 242ms (Views: 237.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2019-04-29 22:25:35 +0800
+
+
+Started GET "/news/new" for 127.0.0.1 at 2019-04-29 22:25:56 +0800
+Processing by NewsController#new as HTML
+  Rendered news/_form.html.erb (65.0ms)
+  Rendered news/new.html.erb within layouts/application (68.0ms)
+  [1m[35mUser Load (6.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = 'ffc46b7c9e2c8ebb0eb23658b8d636f432d69ca9' LIMIT 1
+  Rendered common/_navbar.html.erb (14.0ms)
+  Rendered common/_footer.html.erb (3.0ms)
+Completed 200 OK in 289ms (Views: 279.4ms | ActiveRecord: 6.0ms)

@@ -21,7 +21,7 @@
         <td><%= news.posttime %></td>
         <td><%= news.title %></td>
         <td><%= news.body %></td>
-        <td><%= news.picture %></td>
+        <td><%= image_tag news.picture_url(:minium) if news.picture? %></td>
         <td><%= link_to 'Show', news %></td>
         <td><%= link_to 'Edit', edit_news_path(news) %></td>
         <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -68,6 +68,11 @@ gem 'writeexcel'
 # handle cors problem. @xieyinghua
 gem 'rack-cors', require: 'rack/cors'
 
+#support for image upload. @xieyinghua
+gem 'rmagick4j', require: 'RMagick'
+gem 'carrierwave', '~> 0.10.0'
+gem 'simple_form'
+
 
 
 group :development, :test do

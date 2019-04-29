@@ -13,6 +13,8 @@
       <th><%= t(:utitle, :scope=>[:activerecord,:attributes,:user]) %></th>
       <th><%= t(:upower, :scope=>[:activerecord,:attributes,:user]) %></th>
       <th><%= t(:usort, :scope=>[:activerecord,:attributes,:user]) %></th>
+      <th><%= t(:uphone, :scope=>[:activerecord,:attributes,:user]) %></th>
+      <th><%= t(:udid, :scope=>[:activerecord,:attributes,:user]) %></th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -26,6 +28,8 @@
         <td><%= user.utitle %></td>
         <td><%= user.upower %></td>
         <td><%= user.usort %></td>
+        <td><%= user.uphone %></td>
+        <td><%= user.udid %></td>
         <td><%= link_to '詳細', user %></td>
         <td><%= link_to '修改', edit_user_path(user) %></td>
         <!-- <td><%= link_to '刪除', user, method: :delete, data: { confirm: '確定嗎？' } %></td> -->

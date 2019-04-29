@@ -24,7 +24,23 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    if params[:cros]!='y'
+      #create from page query. @xieyinghua
+      @user = User.new(user_params)
+    else
+      #create from cros post. @xieyinghua
+      new_user_params=User.new
+      new_user_params[:uid]=params[:uid]
+      new_user_params[:upw]=params[:upw]
+      new_user_params[:uanem]=params[:uname]
+      new_user_params[:upower]=params[:upower]
+      new_user_params[:uphone]=params[:uphone]
+      new_user_params[:utitle]=params[:utitle]
+      new_user_params[:udid]=params[:udid]
+      new_user_params[:usort=params[:usort]
+
+      @user=User.new(new_user_params)
+    end
 
     respond_to do |format|
       if @user.save
@@ -42,6 +58,20 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    if params[:cros]=='y'
+      #create from cros post. @xieyinghua
+      id=params[:id]
+      @user=User.where("id='#{id}'").first
+      @user.uid=params[:uid]
+      @user.upw=params[:upw]
+      @user.uname=params[:uname]
+      @user.upower=params[:upower]
+      @user.uphone=params[:uphone]
+      @user.utitle=params[:utitle]
+      @user.udid=params[:udid]
+      @user.usort=params[:usort]
+    end
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -71,6 +101,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:uid, :upw, :uname, :utitle, :upower, :usort)
+      params.require(:user).permit(:uid, :upw, :uname, :utitle, :upower, :usort, :uphone, :udid)
     end
 end

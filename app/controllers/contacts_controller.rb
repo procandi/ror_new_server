@@ -24,7 +24,20 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    if params[:cros]!='y'
+      #create from page query. @xieyinghua
+      @contact = Contact.new(contact_params)
+    else
+      #create from cros post. @xieyinghua
+      new_contact_params=Contact.new
+      new_contact_params[:name]=params[:name]
+      new_contact_params[:phone]=params[:phone]
+      new_contact_params[:reason]=params[:reason]
+      new_contact_params[:email]=params[:email]
+      new_contact_params[:message]=params[:message]
+
+      @contact=Contact.new(new_contact_params)
+    end
 
     respond_to do |format|
       if @contact.save
@@ -40,6 +53,17 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1
   # PATCH/PUT /contacts/1.json
   def update
+    if params[:cros]=='y'
+      #create from cros post. @xieyinghua
+      id=params[:id]
+      @contact=Contact.where("id='#{id}'").first
+      @contact.name=params[:name]
+      @contact.phone=params[:phone]
+      @contact.reason=params[:reason]
+      @contact.email=params[:email]
+      @contact.message=params[:message]
+    end
+
     respond_to do |format|
       if @contact.update(contact_params)
         format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }

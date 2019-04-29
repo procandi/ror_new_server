@@ -31,6 +31,8 @@ zh-TW:
         utitle: "職稱"
         upower: "權限"
         usort: "排序"
+        uphone: "電話"
+        udid: "收藏清單"
       scopy:
         sortid: "序號"
         rid: "Barcode"
@@ -200,3 +202,18 @@ zh-TW:
       holiday:
         restdate: "休假日"
         resttype: "休假模式"
+      news:
+        postdate: '發佈日期'
+        posttime: '發佈時間'
+        title: '標題'
+        body: '內容'
+        picture: '相片'
+      faq:
+        question: '問題'
+        answer: '答案'
+      contact:
+        name: '姓名'
+        phone: '電話'
+        reason: '洽談事項'
+        email: 'EMAIL'
+        message: '留言'

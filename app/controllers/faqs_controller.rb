@@ -24,7 +24,17 @@ class FaqsController < ApplicationController
   # POST /faqs
   # POST /faqs.json
   def create
-    @faq = Faq.new(faq_params)
+    if params[:cros]!='y'
+      #create from page query. @xieyinghua
+      @faq = Faq.new(faq_params)
+    else
+      #create from cros post. @xieyinghua
+      new_faq_params=Faq.new
+      new_faq_params[:question]=params[:question]
+      new_faq_params[:answer]=params[:answer]
+
+      @faq=Faq.new(new_faq_params)
+    end
 
     respond_to do |format|
       if @faq.save
@@ -40,6 +50,14 @@ class FaqsController < ApplicationController
   # PATCH/PUT /faqs/1
   # PATCH/PUT /faqs/1.json
   def update
+    if params[:cros]=='y'
+      #create from cros post. @xieyinghua
+      id=params[:id]
+      @faq=Faq.where("id='#{id}'").first
+      @faq.question=params[:question]
+      @faq.answer=params[:answer]
+    end
+
     respond_to do |format|
       if @faq.update(faq_params)
         format.html { redirect_to @faq, notice: 'Faq was successfully updated.' }

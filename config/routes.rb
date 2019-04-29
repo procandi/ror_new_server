@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   resources :faqs
   resources :contacts
   resources :news
-  #get 'scopies/search_by_rid/:id' => 'scopies#search_by_rid', as: 'scopies/search_by_rid'
 
+  get 'news/search_by_title/:id' => 'news#search_by_title', as: 'news/search_by_title'
+  
+  get 'news/search_by_id/:id' => 'news#search_by_id', as: 'news/search_by_id'
 
   resources :wk_barcodes
   get 'wk_barcode/search' => 'wk_barcodes#search'

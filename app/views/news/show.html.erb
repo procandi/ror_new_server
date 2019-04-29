@@ -22,7 +22,7 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= @news.picture %>
+  <%= image_tag @news.picture_url(:thumb) if @news.picture? %>
 </p>
 
 <%= link_to 'Edit', edit_news_path(@news) %> |

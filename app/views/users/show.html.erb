@@ -39,6 +39,16 @@
 			  <%= @user.usort %>
 			</p>
 
+			<p>
+			  <strong><%= t(:uphone, :scope=>[:activerecord,:attributes,:user]) %>:</strong>
+			  <%= @user.uphone %>
+			</p>
+
+			<p>
+			  <strong><%= t(:udid, :scope=>[:activerecord,:attributes,:user]) %>:</strong>
+			  <%= @user.udid %>
+			</p>
+
 
 
 			<%= link_to '修改', edit_user_path(@user) %> |
