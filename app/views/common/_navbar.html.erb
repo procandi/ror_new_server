@@ -1,0 +1,47 @@
+<%= favicon_link_tag 'favicon.ico' %>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <% if signed_in? %>
+        <%= link_to "QC Endo Cloud System", root_path, id: "logo", :style=>'font-size:18px;' %>
+      <% else %>
+        <%= link_to "QC Endo Cloud System", '#', id: "logo", :style=>'font-size:18px;' %>
+      <% end %>
+    </div>
+
+
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav">
+        <% if signed_in? %>
+          <li class="dropdown">
+              <% if current_user.uid=='9999' || current_user.upower=='管理員' %>
+                <li><%= link_to "RFID", rfid_wsdl_path %></li>
+                <li><%= link_to "人員列表", users_path %></li>
+                <li><%= link_to "內視鏡掃碼記錄", rf_barcode_search_path %></li>
+                <li><%= link_to "工單掃碼記錄", wk_barcode_search_path %></li>\
+              <% end %>
+          </li>
+          <li class="dropdown">
+              <%= link_to " 登出#{current_user.uname} ", session_path, {:method => "delete", :class => "fa fa-power-off"} %>
+          </li>
+      <% else %>
+        <!--<li><%= link_to "註冊", new_user_path %></li>-->
+        <li><%= link_to "登入", new_session_path %></li>
+      <% end %>
+    </ul>
+
+
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <% if signed_in? %>
+      <div id='panel-left' class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav side-nav">  
+              <li>
+                  <a href="#"><i class="fa fa-fw fa-edit"></i> 系統管理 </a>
+              </li>      
+          </ul>
+      </div>
+    <% end %>
+    <!-- /.navbar-collapse -->
+</nav>

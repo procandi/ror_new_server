@@ -1,0 +1,7 @@
+<center>
+	<h1>彰化基督教醫院南郭總院<br>
+		內視鏡感控雲端系統<br></h1>
+	<%= image_tag("CCHLogo.jpg", :style=>'weight:320px;height:240px') %><br><br><br>
+	已是內視鏡感控的用戶？<br><%= link_to "Sign-in", new_session_path, class:"btn btn-large btn-primary" %> <br><br><br>
+	還未擁有內視鏡感控的帳號？<br><%= link_to "Register!", new_user_path %><br><br><br>
+</center>

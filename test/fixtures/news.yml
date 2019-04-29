@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  postdate: 2019-04-29
+  posttime: 2019-04-29 15:18:24
+  title: MyString
+  body: MyString
+  picture: MyString
+
+two:
+  postdate: 2019-04-29
+  posttime: 2019-04-29 15:18:24
+  title: MyString
+  body: MyString
+  picture: MyString
