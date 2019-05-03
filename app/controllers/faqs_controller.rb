@@ -29,7 +29,7 @@ class FaqsController < ApplicationController
       @faq = Faq.new(faq_params)
     else
       #create from cros post. @xieyinghua
-      new_faq_params=Faq.new
+      new_faq_params=Hash.new
       new_faq_params[:question]=params[:question]
       new_faq_params[:answer]=params[:answer]
 

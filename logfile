@@ -805,3 +805,7 @@ HINT:  Is another postmaster (PID 445) running in data directory "/usr/local/var
 2019-04-28 22:35:01.226 CST [7776] LOG:  worker process: logical replication launcher (PID 7783) exited with exit code 1
 2019-04-28 22:35:01.227 CST [7778] LOG:  shutting down
 2019-04-28 22:35:01.242 CST [7776] LOG:  database system is shut down
+2019-05-03 15:41:40.729 CST [9897] FATAL:  lock file "postmaster.pid" already exists
+2019-05-03 15:41:40.729 CST [9897] HINT:  Is another postmaster (PID 2127) running in data directory "/usr/local/var/postgres"?
+2019-05-03 15:41:52.751 CST [9903] FATAL:  lock file "postmaster.pid" already exists
+2019-05-03 15:41:52.751 CST [9903] HINT:  Is another postmaster (PID 2127) running in data directory "/usr/local/var/postgres"?

@@ -36,6 +36,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :users
+  get 'search_by_login/:uid/:upw' => 'users#search_by_login'
+  post 'search_by_login/:uid/:upw' => 'users#search_by_login'
+
   resource :session, only: [ :new, :create, :destroy ]
 
   # Example resource route with options:

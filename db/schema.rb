@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20190429072044) do
     t.string   "upower"
     t.integer  "usort"
     t.string   "uphone"
+    t.string   "udid"
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree

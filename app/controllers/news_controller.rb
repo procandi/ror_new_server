@@ -63,7 +63,7 @@ class NewsController < ApplicationController
       @news = News.new(news_params)
     else
       #create from cros post. @xieyinghua
-      new_news_params=News.new
+      new_news_params=Hash.new
       new_news_params[:postdate]=params[:postdate]
       new_news_params[:posttime]=params[:posttime]
       new_news_params[:title]=params[:title]

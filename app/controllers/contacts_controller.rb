@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
       @contact = Contact.new(contact_params)
     else
       #create from cros post. @xieyinghua
-      new_contact_params=Contact.new
+      new_contact_params=Hash.new
       new_contact_params[:name]=params[:name]
       new_contact_params[:phone]=params[:phone]
       new_contact_params[:reason]=params[:reason]

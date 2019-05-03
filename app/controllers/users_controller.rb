@@ -1,6 +1,24 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  #use for android search by title. @xieyinghua
+  def search_by_login
+    uid=params[:uid]
+    upw=params[:upw]
+    @user=User.where("uid='#{uid}' and upw='#{upw}'").first
+
+    respond_to do |format|
+      if @user!=nil
+        format.html { render :show }
+        format.json { render json: @user, status: :ok }
+      else
+        @user = User.all.first
+        format.html { render :show }
+        format.json { render json: nil, status: :ok }
+      end
+    end
+  end
+
   # GET /users
   # GET /users.json
   def index
@@ -29,15 +47,23 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
     else
       #create from cros post. @xieyinghua
-      new_user_params=User.new
+      new_user_params=Hash.new
       new_user_params[:uid]=params[:uid]
       new_user_params[:upw]=params[:upw]
-      new_user_params[:uanem]=params[:uname]
-      new_user_params[:upower]=params[:upower]
+      new_user_params[:uname]=params[:uname]
       new_user_params[:uphone]=params[:uphone]
-      new_user_params[:utitle]=params[:utitle]
-      new_user_params[:udid]=params[:udid]
-      new_user_params[:usort=params[:usort]
+
+      if params[:upower]!=nil
+        new_user_params[:upower]=params[:upower]
+        new_user_params[:utitle]=params[:utitle]
+        new_user_params[:udid]=params[:udid]
+        new_user_params[:usort]=params[:usort]
+      else
+        new_user_params[:upower]='會員'
+        new_user_params[:utitle]='會員'
+        new_user_params[:udid]=''
+        new_user_params[:usort]=1
+      end
 
       @user=User.new(new_user_params)
     end
