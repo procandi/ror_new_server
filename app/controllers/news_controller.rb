@@ -58,6 +58,8 @@ class NewsController < ApplicationController
   # POST /news
   # POST /news.json
   def create
+    #p 'jiajfijewaiofjewaiofjweaoif'
+    #p params
     if params[:cros]!='y'
       #create from page query. @xieyinghua
       @news = News.new(news_params)
@@ -68,9 +70,27 @@ class NewsController < ApplicationController
       new_news_params[:posttime]=params[:posttime]
       new_news_params[:title]=params[:title]
       new_news_params[:body]=params[:body]
-      new_news_params[:picture]=params[:picture]
 
-      @new=News.new(new_news_params)
+
+
+      
+      
+      picture_path_params = params[:picture]
+      #create a new tempfile named fileupload
+      tempfile = Tempfile.new("fileupload")
+      tempfile.binmode
+      #get the file and decode it with base64 then write it to the tempfile
+      tempfile.write(Base64.decode64(picture_path_params))
+     
+      #create a new uploaded file
+      uploaded_file = ActionDispatch::Http::UploadedFile.new(:tempfile => tempfile, :filename => 'cool1.jpg', :original_filename => 'cool2.jpg') 
+     
+
+      new_news_params[:picture]=uploaded_file
+
+
+
+      @news=News.new(new_news_params)
     end
 
     respond_to do |format|

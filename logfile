@@ -809,3 +809,8 @@ HINT:  Is another postmaster (PID 445) running in data directory "/usr/local/var
 2019-05-03 15:41:40.729 CST [9897] HINT:  Is another postmaster (PID 2127) running in data directory "/usr/local/var/postgres"?
 2019-05-03 15:41:52.751 CST [9903] FATAL:  lock file "postmaster.pid" already exists
 2019-05-03 15:41:52.751 CST [9903] HINT:  Is another postmaster (PID 2127) running in data directory "/usr/local/var/postgres"?
+2019-05-04 20:39:23.863 CST [5441] LOG:  listening on IPv6 address "::1", port 5432
+2019-05-04 20:39:23.864 CST [5441] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-05-04 20:39:23.866 CST [5441] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-05-04 20:39:23.925 CST [5442] LOG:  database system was shut down at 2019-05-04 02:48:37 CST
+2019-05-04 20:39:23.933 CST [5441] LOG:  database system is ready to accept connections
