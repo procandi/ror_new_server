@@ -70,9 +70,6 @@ class NewsController < ApplicationController
       new_news_params[:posttime]=params[:posttime]
       new_news_params[:title]=params[:title]
       new_news_params[:body]=params[:body]
-
-
-
       
       
       picture_path_params = params[:picture]
@@ -108,14 +105,29 @@ class NewsController < ApplicationController
   # PATCH/PUT /news/1.json
   def update
     if params[:cros]=='y'
-      #create from cros post. @xieyinghua
-      id=params[:id]
-      @news=News.where("id='#{id}'").first
-      @user.postdate=params[:postdate]
-      @user.posttime=params[:posttime]
-      @user.title=params[:title]
-      @user.body=params[:body]
-      @user.picture=params[:picture]
+      #update from cros post. @xieyinghua
+      new_news_params=news_params
+      new_news_params[:postdate]=params[:postdate]
+      new_news_params[:posttime]=params[:posttime]
+      new_news_params[:title]=params[:title]
+      new_news_params[:body]=params[:body]
+
+      
+      picture_path_params = params[:picture]
+      #create a new tempfile named fileupload
+      tempfile = Tempfile.new("fileupload")
+      tempfile.binmode
+      #get the file and decode it with base64 then write it to the tempfile
+      tempfile.write(Base64.decode64(picture_path_params))
+     
+      #create a new uploaded file
+      uploaded_file = ActionDispatch::Http::UploadedFile.new(:tempfile => tempfile, :filename => 'cool1.jpg', :original_filename => 'cool2.jpg') 
+     
+     
+      new_news_params[:picture]=uploaded_file
+
+
+      news_params=new_news_params
     end
 
     respond_to do |format|

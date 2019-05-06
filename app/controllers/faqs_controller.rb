@@ -51,11 +51,12 @@ class FaqsController < ApplicationController
   # PATCH/PUT /faqs/1.json
   def update
     if params[:cros]=='y'
-      #create from cros post. @xieyinghua
-      id=params[:id]
-      @faq=Faq.where("id='#{id}'").first
-      @faq.question=params[:question]
-      @faq.answer=params[:answer]
+      #update from cros post. @xieyinghua
+      new_faq_params=faq_params
+      new_faq_params[:question]=params[:question]
+      new_faq_params[:answer]=params[:answer]
+
+      faq_params=new_faq_params
     end
 
     respond_to do |format|

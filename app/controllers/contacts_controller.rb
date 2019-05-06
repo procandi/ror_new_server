@@ -53,13 +53,14 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1.json
   def update
     if params[:cros]=='y'
-      #create from cros post. @xieyinghua
-      id=params[:id]
-      @contact=Contact.where("id='#{id}'").first
-      @contact.name=params[:name]
-      @contact.phone=params[:phone]
-      @contact.reason=params[:reason]
-      @contact.email=params[:email]
+      #update from cros post. @xieyinghua
+      new_contact_params=contact_params
+      new_contact_params[:name]=params[:name]
+      new_contact_params[:phone]=params[:phone]
+      new_contact_params[:reason]=params[:reason]
+      new_contact_params[:email]=params[:email]
+
+      contact_params=new_contact_params
     end
 
     respond_to do |format|

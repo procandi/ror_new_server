@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-  #custom add relationship. @xieyinghua
-  has_many :worksenses, :foreign_key => :user_id
-
   validates :uid, :allow_blank=>false, :length=>{ :maximum=>30 }, :uniqueness=>true #必填，不得超過30字，且不得重複。 @xieyinghua
   validates :upw, :allow_blank=>false, :length=>{ :maximum=>30 } #必填，不得超過30字。 @xieyinghua
   validates :uname, :allow_blank=>false, :length=>{ :maximum=>30 } #必填，不得超過30字。 @xieyinghua

@@ -27,7 +27,7 @@ zh-TW:
       user:
         uid: "帳號"
         upw: "密碼"
-        uname: "姓名"
+        uname: "EMail"
         utitle: "職稱"
         upower: "權限"
         usort: "排序"

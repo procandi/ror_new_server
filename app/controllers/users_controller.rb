@@ -85,17 +85,28 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if params[:cros]=='y'
-      #create from cros post. @xieyinghua
-      id=params[:id]
-      @user=User.where("id='#{id}'").first
-      @user.uid=params[:uid]
-      @user.upw=params[:upw]
-      @user.uname=params[:uname]
-      @user.upower=params[:upower]
-      @user.uphone=params[:uphone]
-      @user.utitle=params[:utitle]
-      @user.udid=params[:udid]
-      @user.usort=params[:usort]
+      #update from cros post. @xieyinghua
+      new_user_params=user_params
+      new_user_params[:uid]=params[:uid]
+      new_user_params[:upw]=params[:upw]
+      new_user_params[:uname]=params[:uname]
+      new_user_params[:uphone]=params[:uphone]
+
+=begin
+      if params[:upower]!=nil
+        new_user_params[:upower]=params[:upower]
+        new_user_params[:utitle]=params[:utitle]
+        new_user_params[:udid]=params[:udid]
+        new_user_params[:usort]=params[:usort]
+      else
+        new_user_params[:upower]='會員'
+        new_user_params[:utitle]='會員'
+        new_user_params[:udid]=''
+        new_user_params[:usort]=1
+      end
+=end
+
+      user_params=new_user_params
     end
 
     respond_to do |format|
