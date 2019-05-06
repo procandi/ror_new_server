@@ -207,7 +207,7 @@ zh-TW:
         posttime: '發佈時間'
         title: '標題'
         body: '內容'
-        picture: '相片'
+        picture: '附圖'
       faq:
         question: '問題'
         answer: '答案'
@@ -216,4 +216,4 @@ zh-TW:
         phone: '電話'
         reason: '洽談事項'
         email: 'EMAIL'
-        message: '留言'
+        message: '留言內容'

@@ -1,3 +1,14 @@
+<p style='color:#ffffff;font-size:16px;font-family:PingFang-SC-Medium;'>當前位置: 管理系統 > 問與答管理</p>
+
+<div style='display:table;'>
+  <div style='display:table-row;'>
+    <div style='display:table-cell;background:#333333;width:1024px;height:30px;color:#ffffff;font-size:18px;font-family:PingFang-SC-Medium;text-align:center;'>問與答管理</div>
+  </div>
+  <div style='display:table-row;'>
+    <div style='display:table-cell;background:#ffffff;padding-left:5%;'>
+
+
+
 <%= form_for(@faq) do |f| %>
   <% if @faq.errors.any? %>
     <div id="error_explanation">
@@ -23,3 +34,10 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+        <%= link_to '返回', faqs_path %>
+
+    </div>
+  </div>

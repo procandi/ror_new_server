@@ -1,29 +1,47 @@
 <p id="notice"><%= notice %></p>
 
+<p style='color:#ffffff;font-size:16px;font-family:PingFang-SC-Medium;'>當前位置: 管理系統 > 文章內文詳細資訊</p>
+
+<div style='display:table;'>
+  <div style='display:table-row;'>
+    <div style='display:table-cell;background:#333333;width:1024px;height:30px;color:#ffffff;font-size:18px;font-family:PingFang-SC-Medium;text-align:center;'>文章內文詳細資訊</div>
+  </div>
+  <div style='display:table-row;'>
+    <div style='display:table-cell;background:#ffffff;padding-left:5%;'>
+
+
+
+<p id="notice"><%= notice %></p>
+
 <p>
-  <strong>Postdate:</strong>
+  <strong>張貼日期:</strong>
   <%= @news.postdate %>
 </p>
 
 <p>
-  <strong>Posttime:</strong>
+  <strong>張貼時間:</strong>
   <%= @news.posttime %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>標題:</strong>
   <%= @news.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>內文:</strong>
   <%= @news.body %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
+  <strong>附圖:</strong>
   <%= image_tag @news.picture_url(:thumb) if @news.picture? %>
 </p>
 
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+<%= link_to '修改', edit_news_path(@news) %> |
+<%= link_to '返回', news_index_path %>
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+  </div>
+</div>

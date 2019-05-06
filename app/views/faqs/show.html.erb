@@ -1,14 +1,32 @@
 <p id="notice"><%= notice %></p>
 
+<p style='color:#ffffff;font-size:16px;font-family:PingFang-SC-Medium;'>當前位置: 管理系統 > 問與答詳細資訊</p>
+
+<div style='display:table;'>
+	<div style='display:table-row;'>
+		<div style='display:table-cell;background:#333333;width:1024px;height:30px;color:#ffffff;font-size:18px;font-family:PingFang-SC-Medium;text-align:center;'>問與答詳細資訊</div>
+	</div>
+	<div style='display:table-row;'>
+		<div style='display:table-cell;background:#ffffff;padding-left:5%;'>
+
+
 <p>
-  <strong>Question:</strong>
+  <strong><%= t(:question, :scope=>[:activerecord,:attributes,:faq]) %>:</strong>
   <%= @faq.question %>
 </p>
 
 <p>
-  <strong>Answer:</strong>
+  <strong><%= t(:answer, :scope=>[:activerecord,:attributes,:faq]) %>:</strong>
   <%= @faq.answer %>
 </p>
 
-<%= link_to 'Edit', edit_faq_path(@faq) %> |
-<%= link_to 'Back', faqs_path %>
+<%= link_to '修改', edit_faq_path(@faq) %> |
+<%= link_to '返回', faqs_path %>
+
+
+
+
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div>
+	</div>
+</div>

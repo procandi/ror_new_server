@@ -814,3 +814,12 @@ HINT:  Is another postmaster (PID 445) running in data directory "/usr/local/var
 2019-05-04 20:39:23.866 CST [5441] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
 2019-05-04 20:39:23.925 CST [5442] LOG:  database system was shut down at 2019-05-04 02:48:37 CST
 2019-05-04 20:39:23.933 CST [5441] LOG:  database system is ready to accept connections
+2019-05-05 00:31:59.846 CST [5441] LOG:  received smart shutdown request
+2019-05-05 00:31:59.848 CST [5441] LOG:  worker process: logical replication launcher (PID 5448) exited with exit code 1
+2019-05-05 00:31:59.848 CST [5443] LOG:  shutting down
+2019-05-05 00:31:59.859 CST [5441] LOG:  database system is shut down
+2019-05-06 13:21:47.800 CST [2056] LOG:  listening on IPv6 address "::1", port 5432
+2019-05-06 13:21:47.801 CST [2056] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-05-06 13:21:47.803 CST [2056] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-05-06 13:21:47.856 CST [2057] LOG:  database system was shut down at 2019-05-05 00:31:59 CST
+2019-05-06 13:21:47.889 CST [2056] LOG:  database system is ready to accept connections

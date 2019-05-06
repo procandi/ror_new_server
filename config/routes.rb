@@ -7,11 +7,9 @@ Rails.application.routes.draw do
   
   get 'news/search_by_id/:id' => 'news#search_by_id', as: 'news/search_by_id'
 
-  resources :wk_barcodes
   get 'wk_barcode/search' => 'wk_barcodes#search'
   post 'wk_barcode/search' => 'wk_barcodes#search'
 
-  resources :rf_barcodes
   get 'rf_barcode/search' => 'rf_barcodes#search'
   post 'rf_barcode/search' => 'rf_barcodes#search'
 

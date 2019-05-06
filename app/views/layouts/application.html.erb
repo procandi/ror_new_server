@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>QC Endo Cloud System</title>
+    <title>頭份工業WEB版管理系</title>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -17,7 +17,7 @@
 <div id="wrapper">
     <%= render "common/navbar" %> <!-- header. @xieyinghua -->
     
-    <% if signed_in? %>
+    <% if false %>
         <% if request.env['PATH_INFO']=='/statistic_endo_withreport' || request.env['PATH_INFO']=='/examines' %>
             <div id="page-wrapper-big" style='background-color:#717171;'>
                 <div class="container-fluid">
