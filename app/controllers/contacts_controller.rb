@@ -34,7 +34,6 @@ class ContactsController < ApplicationController
       new_contact_params[:phone]=params[:phone]
       new_contact_params[:reason]=params[:reason]
       new_contact_params[:email]=params[:email]
-      new_contact_params[:message]=params[:message]
 
       @contact=Contact.new(new_contact_params)
     end
@@ -61,7 +60,6 @@ class ContactsController < ApplicationController
       @contact.phone=params[:phone]
       @contact.reason=params[:reason]
       @contact.email=params[:email]
-      @contact.message=params[:message]
     end
 
     respond_to do |format|
