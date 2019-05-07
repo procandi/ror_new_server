@@ -28,7 +28,7 @@
   </div><br>
   <div class="field">
     <%= f.label t(:upw, :scope=>[:activerecord,:attributes,:user]) %>[*必填]<br>
-    <%= f.password_field :upw %>
+    <%= f.text_field :upw %>
   </div><br>
   <div class="field">
     <%= f.label t(:uname, :scope=>[:activerecord,:attributes,:user]) %>[*必填]<br>
@@ -40,7 +40,7 @@
   </div><br>
   <div class="field">
     <%= f.label t(:upower, :scope=>[:activerecord,:attributes,:user]) %><br>
-    <%= f.text_field :upower %>
+    <%= f.select :upower, [['審核中','審核中'],['停權','停權'],['會員','會員'],['管理員','管理員']]%>
   </div><br>
   <div class="field">
     <%= f.label t(:usort, :scope=>[:activerecord,:attributes,:user]) %><br>

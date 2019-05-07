@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       if params[:upower]!=nil
         new_user_params[:upower]=params[:upower]
       else
-        new_user_params[:upower]='會員'
+        new_user_params[:upower]='審核中'
       end
       if params[:utitle]!=nil
         new_user_params[:utitle]=params[:utitle]
@@ -115,6 +115,24 @@ class UsersController < ApplicationController
         new_user_params[:usort]=1
       end
 =end
+
+      user_params=new_user_params
+    else
+      #update from page post. @xieyinghua
+      user_params=params[:user]
+
+
+      #need set value one by one, i not sure why. @xieyinghua
+      new_user_params=Hash.new
+      new_user_params[:uid]=user_params[:uid]
+      new_user_params[:upw]=user_params[:upw]
+      new_user_params[:uname]=user_params[:uname]
+      new_user_params[:uphone]=user_params[:uphone]
+      new_user_params[:upower]=user_params[:upower]
+      new_user_params[:utitle]=user_params[:utitle]
+      new_user_params[:udid]=user_params[:udid]
+      new_user_params[:usort]=user_params[:usort]
+
 
       user_params=new_user_params
     end

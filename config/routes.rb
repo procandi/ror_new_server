@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :faqs
   resources :contacts
   resources :news
+
+  get 'index_by_title/:id' => 'news#index_by_title'
+
   get 'index_by_udid/:id' => 'news#index_by_udid'
   
   get 'news/search_by_title/:id' => 'news#search_by_title', as: 'news/search_by_title'

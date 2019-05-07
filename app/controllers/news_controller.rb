@@ -36,6 +36,20 @@ class NewsController < ApplicationController
   end
 
 
+  # GET /news_by_title
+  # GET /news.json
+  def index_by_title
+    title=params[:title]
+
+    sql="title like '%#{title}%'"
+    @news = News.all.where(sql)
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @news, status: :ok }
+    end
+  end
+
   # GET /news_by_udid
   # GET /news.json
   def index_by_udid
