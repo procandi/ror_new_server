@@ -35,6 +35,30 @@ class NewsController < ApplicationController
     end
   end
 
+
+  # GET /news_by_udid
+  # GET /news.json
+  def index_by_udid
+    udid_list=params[:id]
+    udid=udid_list.split(',')
+    
+    sql=''
+    udid.each_with_index(){|v,i|
+      if i==0
+        sql+="id=#{udid[i]} "
+      else
+        sql+="or id=#{udid[i]} "
+      end
+    }
+
+    @news = News.all.where(sql)
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @news, status: :ok }
+    end
+  end
+
   # GET /news
   # GET /news.json
   def index
@@ -106,7 +130,7 @@ class NewsController < ApplicationController
   def update
     if params[:cros]=='y'
       #update from cros post. @xieyinghua
-      new_news_params=news_params
+      new_news_params=params
       new_news_params[:postdate]=params[:postdate]
       new_news_params[:posttime]=params[:posttime]
       new_news_params[:title]=params[:title]
@@ -125,6 +149,21 @@ class NewsController < ApplicationController
      
      
       new_news_params[:picture]=uploaded_file
+
+
+      news_params=new_news_params
+    else
+      #update from page post. @xieyinghua
+      news_params=params[:news]
+
+
+      #need set value one by one, i not sure why. @xieyinghua
+      new_news_params=Hash.new
+      new_news_params[:postdate]="#{news_params['postdate(1i)']}-#{news_params['postdate(2i)']}-#{news_params['postdate(3i)']}"
+      new_news_params[:posttime]="#{news_params['posttime(4i)']}:#{news_params['posttime(5i)']}:00"
+      new_news_params[:title]=news_params[:title]
+      new_news_params[:body]=news_params[:body]
+      new_news_params[:picture]=news_params[:picture]
 
 
       news_params=new_news_params

@@ -55,15 +55,25 @@ class UsersController < ApplicationController
 
       if params[:upower]!=nil
         new_user_params[:upower]=params[:upower]
-        new_user_params[:utitle]=params[:utitle]
-        new_user_params[:udid]=params[:udid]
-        new_user_params[:usort]=params[:usort]
       else
         new_user_params[:upower]='會員'
+      end
+      if params[:utitle]!=nil
+        new_user_params[:utitle]=params[:utitle]
+      else
         new_user_params[:utitle]='會員'
+      end
+      if params[:udid]!=nil
+        new_user_params[:udid]=params[:udid]
+      else
         new_user_params[:udid]=''
+      end
+      if params[:usort]!=nil
+        new_user_params[:usort]=params[:usort]
+      else
         new_user_params[:usort]=1
       end
+          
 
       @user=User.new(new_user_params)
     end

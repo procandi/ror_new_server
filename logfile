@@ -823,3 +823,7 @@ HINT:  Is another postmaster (PID 445) running in data directory "/usr/local/var
 2019-05-06 13:21:47.803 CST [2056] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
 2019-05-06 13:21:47.856 CST [2057] LOG:  database system was shut down at 2019-05-05 00:31:59 CST
 2019-05-06 13:21:47.889 CST [2056] LOG:  database system is ready to accept connections
+2019-05-07 02:17:37.639 CST [2056] LOG:  received smart shutdown request
+2019-05-07 02:17:37.641 CST [2056] LOG:  worker process: logical replication launcher (PID 2063) exited with exit code 1
+2019-05-07 02:17:37.642 CST [2058] LOG:  shutting down
+2019-05-07 02:17:37.656 CST [2056] LOG:  database system is shut down

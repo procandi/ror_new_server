@@ -2,16 +2,12 @@ Rails.application.routes.draw do
   resources :faqs
   resources :contacts
   resources :news
-
+  get 'index_by_udid/:id' => 'news#index_by_udid'
+  
   get 'news/search_by_title/:id' => 'news#search_by_title', as: 'news/search_by_title'
   
   get 'news/search_by_id/:id' => 'news#search_by_id', as: 'news/search_by_id'
 
-  get 'wk_barcode/search' => 'wk_barcodes#search'
-  post 'wk_barcode/search' => 'wk_barcodes#search'
-
-  get 'rf_barcode/search' => 'rf_barcodes#search'
-  post 'rf_barcode/search' => 'rf_barcodes#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
