@@ -71,7 +71,7 @@ class UsersController < ApplicationController
       if params[:usort]!=nil
         new_user_params[:usort]=params[:usort]
       else
-        new_user_params[:usort]=1
+        new_user_params[:usort]=0
       end
           
 
