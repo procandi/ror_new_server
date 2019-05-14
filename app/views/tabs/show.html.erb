@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p style='color:#ffffff;font-size:16px;font-family:PingFang-SC-Medium;'>當前位置: 管理系統 > 分類詳細資訊</p>
+
+<div style='display:table;'>
+  <div style='display:table-row;'>
+    <div style='display:table-cell;background:#333333;width:1024px;height:30px;color:#ffffff;font-size:18px;font-family:PingFang-SC-Medium;text-align:center;'>分類詳細資訊</div>
+  </div>
+  <div style='display:table-row;'>
+    <div style='display:table-cell;background:#ffffff;padding-left:5%;'>
+
+
+
+
+<p>
+  <strong><%= t(:tname, :scope=>[:activerecord,:attributes,:tab]) %>:</strong>
+  <%= @tab.tname %>
+</p>
+
+<p>
+  <strong><%= t(:tsort, :scope=>[:activerecord,:attributes,:tab]) %>:</strong>
+  <%= @tab.tsort %>
+</p>
+
+<%= link_to '修改', edit_tab_path(@tab) %> |
+<%= link_to '返回', tabs_path %>
+
+
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+  </div>
+</div>

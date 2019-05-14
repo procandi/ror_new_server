@@ -1,13 +1,13 @@
-<%= favicon_link_tag 'favicon.ico' %>
+<link href="<%= image_path('favicon.ico') %>" rel="shortcut icon" />
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <% if signed_in? %>
-        <%= link_to "頭份工業WEB版管理系統", root_path, id: "logo", :style=>'font-size:18px;' %>
+        <%= link_to "WEB版管理系統", root_path, id: "logo", :style=>'font-size:18px;' %>
       <% else %>
-        <%= link_to "頭份工業WEB版管理系統", '#', id: "logo", :style=>'font-size:18px;' %>
+        <%= link_to "WEB版管理系統", '#', id: "logo", :style=>'font-size:18px;' %>
       <% end %>
     </div>
 
@@ -18,6 +18,7 @@
           <li class="dropdown">
               <% if current_user.uid=='9999' || current_user.upower=='管理員' %>
                 <li><%= link_to "會員管理", users_path %></li>
+                <li><%= link_to "分類管理", tabs_path %></li>
                 <li><%= link_to "文章管理", news_index_path %></li>
                 <li><%= link_to "問與答管理", faqs_path %></li>
                 <li><%= link_to "留言管理", contacts_path %></li>

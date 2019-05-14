@@ -208,6 +208,7 @@ zh-TW:
         title: '標題'
         body: '內容'
         picture: '附圖'
+        tab: '分類'
       faq:
         question: '問題'
         answer: '答案'
@@ -217,3 +218,6 @@ zh-TW:
         reason: '洽談事項'
         email: 'EMAIL'
         message: '留言內容'
+      tab:
+        tname: '分類名稱'
+        tsort: '排序'

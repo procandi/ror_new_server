@@ -3,13 +3,13 @@ class NewsController < ApplicationController
 
   #use for android search by title. @xieyinghua
   def search_by_title
-    title=params[:title]
-    @news=News.where("title like '%#{title}%'")
+    title=params[:id]
+    @news=News.where("title like '%#{title}%'").order('postdate desc, posttime desc')
 
     respond_to do |format|
       if @news!=nil
         format.html { render :index }
-        format.json { render json: @news, status: :ok }
+        format.json { render json: @news.limit(100), status: :ok }
       else
         @news = News.all
         format.html { render :index }
@@ -21,12 +21,12 @@ class NewsController < ApplicationController
   #use for android search by id. @xieyinghua
   def search_by_id
     id=params[:id]
-    @news=News.where("id>=#{id}-10")
+    @news=News.where("id>=#{id}-10").order('postdate desc, posttime desc')
 
     respond_to do |format|
       if @news!=nil
         format.html { render :index }
-        format.json { render json: @news, status: :ok }
+        format.json { render json: @news.limit(100), status: :ok }
       else
         @news = News.all
         format.html { render :index }
@@ -39,14 +39,31 @@ class NewsController < ApplicationController
   # GET /news_by_title
   # GET /news.json
   def index_by_title
-    title=params[:title]
+    title=params[:id]
 
     sql="title like '%#{title}%'"
-    @news = News.all.where(sql)
+    @news = News.all.where(sql).order('postdate desc, posttime desc')
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @news, status: :ok }
+      format.json { render json: @news.limit(100), status: :ok }
+    end
+  end
+
+  # GET /news_by_title
+  # GET /news.json
+  def index_by_tab
+    #search from tab first
+    tsort=params[:id]
+    tab=Tab.all.where("tsort=#{tsort}").first
+
+    #get news by tab name
+    sql="tab='#{tab.tname}'"
+    @news = News.all.where(sql).order('postdate desc, posttime desc')
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @news.limit(100), status: :ok }
     end
   end
 
@@ -65,18 +82,23 @@ class NewsController < ApplicationController
       end
     }
 
-    @news = News.all.where(sql)
+    @news = News.all.where(sql).order('postdate desc, posttime desc')
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @news, status: :ok }
+      format.json { render json: @news.limit(100), status: :ok }
     end
   end
 
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    @news = News.all.order('postdate desc, posttime desc')
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @news.limit(100), status: :ok }
+    end
   end
 
   # GET /news/1
@@ -87,10 +109,13 @@ class NewsController < ApplicationController
   # GET /news/new
   def new
     @news = News.new
+
+    @tab = Tab.all.map{|tab| [tab.tname,tab.tname]}
   end
 
   # GET /news/1/edit
   def edit
+    @tab = Tab.all.map{|tab| [tab.tname,tab.tname]}
   end
 
   # POST /news
@@ -108,6 +133,7 @@ class NewsController < ApplicationController
       new_news_params[:posttime]=params[:posttime]
       new_news_params[:title]=params[:title]
       new_news_params[:body]=params[:body]
+      new_news_params[:tab]=params[:tab]
       
       
       picture_path_params = params[:picture]
@@ -149,6 +175,7 @@ class NewsController < ApplicationController
       new_news_params[:posttime]=params[:posttime]
       new_news_params[:title]=params[:title]
       new_news_params[:body]=params[:body]
+      new_news_params[:tab]=params[:tab]
 
       
       picture_path_params = params[:picture]
@@ -177,6 +204,7 @@ class NewsController < ApplicationController
       new_news_params[:posttime]="#{news_params['posttime(4i)']}:#{news_params['posttime(5i)']}:00"
       new_news_params[:title]=news_params[:title]
       new_news_params[:body]=news_params[:body]
+      new_news_params[:tab]=news_params[:tab]
       new_news_params[:picture]=news_params[:picture]
 
 
@@ -218,6 +246,6 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:postdate, :posttime, :title, :body, :picture)
+      params.require(:news).permit(:postdate, :posttime, :title, :body, :picture, :tab)
     end
 end

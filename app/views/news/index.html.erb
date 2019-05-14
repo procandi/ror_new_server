@@ -7,6 +7,7 @@
 <table class="table">
   <thead>
     <tr style='background:#f4f4f4;color:#333333;font-size:14px;font-family:MicrosoftJhengHeiRegular;'>
+      <th><%= t(:tab, :scope=>[:activerecord,:attributes,:news]) %></th>
       <th><%= t(:postdate, :scope=>[:activerecord,:attributes,:news]) %></th>
       <th><%= t(:posttime, :scope=>[:activerecord,:attributes,:news]) %></th>
       <th><%= t(:title, :scope=>[:activerecord,:attributes,:news]) %></th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @news.each do |news| %>
       <tr style='background:#f4f4f4;color:#333333;font-size:14px;font-family:MicrosoftJhengHeiRegular;'>
+        <td><%= news.tab %></td>
         <td><%= news.postdate %></td>
         <td><%= news.posttime %></td>
         <td><%= news.title %></td>

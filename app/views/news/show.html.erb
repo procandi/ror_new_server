@@ -10,31 +10,33 @@
     <div style='display:table-cell;background:#ffffff;padding-left:5%;'>
 
 
-
-<p id="notice"><%= notice %></p>
+<p>
+  <strong><%= t(:tab, :scope=>[:activerecord,:attributes,:news]) %>:</strong>
+  <%= @news.tab %>
+</p>
 
 <p>
-  <strong>張貼日期:</strong>
+  <strong><%= t(:postdate, :scope=>[:activerecord,:attributes,:news]) %>:</strong>
   <%= @news.postdate %>
 </p>
 
 <p>
-  <strong>張貼時間:</strong>
+  <strong><%= t(:posttime, :scope=>[:activerecord,:attributes,:news]) %>:</strong>
   <%= @news.posttime %>
 </p>
 
 <p>
-  <strong>標題:</strong>
+  <strong><%= t(:title, :scope=>[:activerecord,:attributes,:news]) %>:</strong>
   <%= @news.title %>
 </p>
 
 <p>
-  <strong>內文:</strong>
+  <strong><%= t(:body, :scope=>[:activerecord,:attributes,:news]) %>:</strong>
   <%= @news.body %>
 </p>
 
 <p>
-  <strong>附圖:</strong>
+  <strong><%= t(:picture, :scope=>[:activerecord,:attributes,:news]) %>:</strong>
   <%= image_tag @news.picture_url(:thumb) if @news.picture? %>
 </p>
 

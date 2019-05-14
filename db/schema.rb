@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190429072044) do
+ActiveRecord::Schema.define(version: 20190513083249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,13 +40,12 @@ ActiveRecord::Schema.define(version: 20190429072044) do
     t.string   "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "tab"
   end
 
-  create_table "rf_barcodes", force: :cascade do |t|
-    t.string   "rid"
-    t.string   "site"
-    t.date     "scandate"
-    t.time     "scantime"
+  create_table "tabs", force: :cascade do |t|
+    t.string   "tname"
+    t.integer  "tsort"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,14 +65,5 @@ ActiveRecord::Schema.define(version: 20190429072044) do
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
-
-  create_table "wk_barcodes", force: :cascade do |t|
-    t.string   "wid"
-    t.string   "site"
-    t.date     "scandate"
-    t.time     "scantime"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end

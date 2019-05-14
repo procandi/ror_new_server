@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :tabs
   resources :faqs
   resources :contacts
   resources :news
 
   get 'index_by_title/:id' => 'news#index_by_title'
+
+  get 'index_by_tab/:id' => 'news#index_by_tab'
 
   get 'index_by_udid/:id' => 'news#index_by_udid'
   
