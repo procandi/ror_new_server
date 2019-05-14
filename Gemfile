@@ -63,7 +63,7 @@ gem 'savon'
 gem 'font-awesome-rails'
 
 # add write excel. @xieyinghua
-gem 'writeexcel'
+#gem 'writeexcel'
 
 # handle cors problem. @xieyinghua
 gem 'rack-cors', require: 'rack/cors'
